@@ -46,7 +46,7 @@ function playOneRound(computerChoice){
     if (computerChoice == "rock"){
         ifRock(playerChoice);
     }else if (computerChoice == "paper"){
-        // ifPaper(playerChoice);
+        ifPaper(playerChoice);
     }else if (computerChoice == "scissors"){
         // ifScissors(playerChoice);
     }
@@ -65,5 +65,20 @@ function ifRock(playerChoice){
         computerScore ++;
         return "You lose!";
         // play again
+    }
+
+    function ifPaper(playerChoice){
+        if (playerChoice == "rock"){
+            computerScore ++;
+            return "You lose!";
+            // play again
+        }else if (playerChoice == "paper"){
+            return "It's a tie!";
+            // play again
+        }else if (playerChoice == "scissors"){
+            playerScore ++;
+            return "You win!";
+            // play again
+        }
     }
 }
