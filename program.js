@@ -1,99 +1,73 @@
-console.log("Hello World!");
-
-let computerNum;
 let computerChoice;
-let playerChoice;
-
+let playerInput;
 let computerScore = 0;
 let playerScore = 0;
+game();
 
-getComputerChoice();
+function game(){
+    while(computerScore < 5 && playerScore < 5){ 
+        playerInput = prompt("Your move...");
+        computerChoice = getComputerChoice();
+        console.log(computerChoice);
+        playRound(playerInput, computerChoice);
+        console.log(playerScore, computerScore);
+    }
+    if (computerScore == 5){
+        console.log("you lose")
+        return "Loss";
+    } else if (playerScore == 5){
+        console.log("you win");
+        return "Win";
+    }
+}
 
 function getComputerChoice(){
     // select random number between 1 and 3
-    computerNum = Math.floor(Math.random() * (4 - 1) + 1);
+    let computerNum = Math.floor(Math.random() * (4 - 1) + 1);
     console.log(computerNum);
     // assign computer choice based on the random number
     switch (computerNum){
-        case 1: computerChoice = "rock";
-            break;
-        case 2: computerChoice = "paper";
-            break;
-        case 3: computerChoice = "scissors";
-            break;
+        case 1: return "rock";
+        case 2: return "paper";
+        case 3: return "scissors";
         default: console.log("Something got fucked");
     }
-    console.log(computerChoice);
-    return computerChoice;
 }
 
-function validatePlayerChoice(playerChoice){
-    // check whether player choice is valid
-    if (playerChoice.toLowerCase() == "rock" || "paper" || "scissors"){
-        // if choice is valid, make player input lower case
-        return playerChoice = playerChoice.toLowerCase();
-        playOneRound(computerChoice);
-    }
-    // if choice is not valid, say so
-    else{
-        console.log("bad input");
-    }
-
-}
-
-function playOneRound(computerChoice){
-    // call function relative to the computer's choice
+function playRound(playerInput, computerChoice){
+    let playerChoice = playerInput.toLowerCase();
     if (computerChoice == "rock"){
-        ifRock(playerChoice);
-    }else if (computerChoice == "paper"){
-        ifPaper(playerChoice);
-    }else if (computerChoice == "scissors"){
-        // ifScissors(playerChoice);
-    }
-    return;
-}
-
-function ifRock(playerChoice){
-    if (playerChoice == "rock"){
-        return "It's a tie!";
-        // play again
-    }else if (playerChoice == "paper"){
-        playerScore ++;
-        return "You win!";
-        // play again
-    }else if (playerChoice == "scissors"){
-        computerScore ++;
-        return "You lose!";
-        // play again
-    }
-}
-
-function ifPaper(playerChoice){
-    if (playerChoice == "rock"){
-        computerScore ++;
-        return "You lose!";
-        // play again
-    }else if (playerChoice == "paper"){
-        return "It's a tie!";
-        // play again
-    }else if (playerChoice == "scissors"){
-        playerScore ++;
-        return "You win!";
-        // play again
-    }
-}
-
-function ifScissors(playerChoice){
-    if (playerChoice == "rock"){
-        playerScore ++;
-        return "You lose!";
-        // play again
-    }else if (playerChoice == "paper"){
-        playerScore ++;
-        return "You win!";
-        // play again
-    }else if (playerChoice == "scissors"){
-        return "It's a tie!";
-        // play again
-    }
+        if (playerChoice == "rock"){
+            return "tie";
+        }else if (playerChoice == "paper"){
+            playerScore ++;
+            return "win";
+        }
+        else if (playerChoice == "scissors"){
+            computerScore ++;
+            return "lose";
+        }
+    }else if(computerChoice == "paper"){
+        if (playerChoice == "rock"){
+            computerScore ++;
+            return "lose";
+        }else if (playerChoice == "paper"){
+            return "tie";
+        }
+        else if (playerChoice == "scissors"){
+            playerScore ++;
+            return "win";
+        }
+    } else if (computerChoice == "scissors"){
+        if (playerChoice == "rock"){
+            playerScore ++;
+            return "win";
+        }else if (playerChoice == "paper"){
+            computerScore ++;
+            return "lose";
+        }
+        else if (playerChoice == "scissors"){
+            return "tie";
+        }
+    } else {console.log("something got fucked 2");}
 }
