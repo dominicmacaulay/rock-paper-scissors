@@ -5,7 +5,7 @@ let computerChoice;
 let playerChoice;
 
 getComputerChoice();
-playOneRound(playerChoice, computerChoice);
+playOneRound(computerChoice);
 
 function getComputerChoice(){
     // select random number between 1 and 3
@@ -13,11 +13,11 @@ function getComputerChoice(){
     console.log(computerNum);
     // assign computer choice based on the random number
     switch (computerNum){
-        case 1: computerChoice = "Rock";
+        case 1: computerChoice = "rock";
             break;
-        case 2: computerChoice = "Paper";
+        case 2: computerChoice = "paper";
             break;
-        case 3: computerChoice = "Scissors";
+        case 3: computerChoice = "scissors";
             break;
         default: console.log("Something got fucked");
     }
@@ -38,6 +38,14 @@ function validatePlayerChoice(playerChoice){
 
 }
 
-function playOneRound(playerChoice, computerChoice){
-    // 
+function playOneRound(computerChoice){
+    // call function relative to the computer's choice
+    if (computerChoice == "rock"){
+        // ifRock(playerChoice);
+    }elseif (computerChoice == "paper"){
+        // ifPaper(playerChoice);
+    }elseif (computerChoice == "scissors"){
+        // ifScissors(playerChoice);
+    }
+    return;
 }
