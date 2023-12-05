@@ -8,8 +8,10 @@ getComputerChoice();
 playOneRound(playerChoice, computerChoice);
 
 function getComputerChoice(){
+    // select random number between 1 and 3
     computerNum = Math.floor(Math.random() * (4 - 1) + 1);
     console.log(computerNum);
+    // assign computer choice based on the random number
     switch (computerNum){
         case 1: computerChoice = "Rock";
             break;
@@ -23,4 +25,19 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-function playOneRound(playerChoice, computerChoice){}
+function validatePlayerChoice(playerChoice){
+    // check whether player choice is valid
+    if (playerChoice.toLowerCase() == "rock" || "paper" || "scissors"){
+        // if choice is valid, make player input lower case
+        return playerChoice = playerChoice.toLowerCase();
+    }
+    // if choice is not valid, say so
+    else{
+        console.log("bad input");
+    }
+
+}
+
+function playOneRound(playerChoice, computerChoice){
+    // 
+}
