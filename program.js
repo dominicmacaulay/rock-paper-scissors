@@ -4,8 +4,10 @@ let computerNum;
 let computerChoice;
 let playerChoice;
 
+let computerScore = 0;
+let playerScore = 0;
+
 getComputerChoice();
-playOneRound(computerChoice);
 
 function getComputerChoice(){
     // select random number between 1 and 3
@@ -30,6 +32,7 @@ function validatePlayerChoice(playerChoice){
     if (playerChoice.toLowerCase() == "rock" || "paper" || "scissors"){
         // if choice is valid, make player input lower case
         return playerChoice = playerChoice.toLowerCase();
+        playOneRound(computerChoice);
     }
     // if choice is not valid, say so
     else{
@@ -41,11 +44,26 @@ function validatePlayerChoice(playerChoice){
 function playOneRound(computerChoice){
     // call function relative to the computer's choice
     if (computerChoice == "rock"){
-        // ifRock(playerChoice);
-    }elseif (computerChoice == "paper"){
+        ifRock(playerChoice);
+    }else if (computerChoice == "paper"){
         // ifPaper(playerChoice);
-    }elseif (computerChoice == "scissors"){
+    }else if (computerChoice == "scissors"){
         // ifScissors(playerChoice);
     }
     return;
+}
+
+function ifRock(playerChoice){
+    if (playerChoice == "rock"){
+        return "It's a tie!";
+        // play again
+    }else if (playerChoice == "paper"){
+        playerScore ++;
+        return "You win!";
+        // play again
+    }else if (playerChoice == "scissors"){
+        computerScore ++;
+        return "You lose!";
+        // play again
+    }
 }
