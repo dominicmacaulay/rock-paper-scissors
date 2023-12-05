@@ -66,19 +66,34 @@ function ifRock(playerChoice){
         return "You lose!";
         // play again
     }
+}
 
-    function ifPaper(playerChoice){
-        if (playerChoice == "rock"){
-            computerScore ++;
-            return "You lose!";
-            // play again
-        }else if (playerChoice == "paper"){
-            return "It's a tie!";
-            // play again
-        }else if (playerChoice == "scissors"){
-            playerScore ++;
-            return "You win!";
-            // play again
-        }
+function ifPaper(playerChoice){
+    if (playerChoice == "rock"){
+        computerScore ++;
+        return "You lose!";
+        // play again
+    }else if (playerChoice == "paper"){
+        return "It's a tie!";
+        // play again
+    }else if (playerChoice == "scissors"){
+        playerScore ++;
+        return "You win!";
+        // play again
+    }
+}
+
+function ifScissors(playerChoice){
+    if (playerChoice == "rock"){
+        playerScore ++;
+        return "You lose!";
+        // play again
+    }else if (playerChoice == "paper"){
+        playerScore ++;
+        return "You win!";
+        // play again
+    }else if (playerChoice == "scissors"){
+        return "It's a tie!";
+        // play again
     }
 }
